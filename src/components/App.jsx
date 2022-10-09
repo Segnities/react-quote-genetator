@@ -10,14 +10,12 @@ import Loader from "./UI/Loaders/Loader";
 
 function App() {
   const [advice, setAdvice] = useState("");
-  const [pageIsLoading, setPageIsLoading] = useState(true);
   const [fetchAdvice, isAdviceLoading, adviceError] = useFetching(async () => {
     const response = await QuoteService.getQuote();
     setAdvice(response.data.slip.advice);
   });
 
   useEffect(() => {
-    setPageIsLoading(false);
     fetchAdvice();
   }, []);
 
