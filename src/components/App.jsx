@@ -23,18 +23,16 @@ function App() {
 
   return (
     <div className="App">
-      <div className="card">
-        {isAdviceLoading ? (
-          <Loader />
-        ) : (
-          <>
-            <h1 className="card-header">{advice}</h1>
-            <button className="btn" onClick={fetchAdvice}>
-              <span>GIVE ADICE, I NEED YOUR WISDOM!</span>
-            </button>
-          </>
-        )}
-      </div>
+      {isAdviceLoading ? (
+        <Loader />
+      ) : (
+        <div className="card">
+          <h1 className="card-header">{advice}</h1>
+          <button className="btn card-btn" onClick={fetchAdvice}>
+            <span>GIVE ADVICE, I NEED YOUR WISDOM!</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 }
